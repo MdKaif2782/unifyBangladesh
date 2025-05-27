@@ -387,7 +387,7 @@ const Header = () => {
 
           {/* User Section */}
           {!currentUser ? (
-            <Link to="/login">
+            <Link to="/login" className="hidden md:block">
               <button className="px-4 py-2 text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 rounded-lg transition-colors">
                 Sign In
               </button>
@@ -478,6 +478,54 @@ const Header = () => {
             </div>
 
             <div className="p-4 space-y-4">
+              {/* Sign In Button for Mobile (only show when not logged in) */}
+              {!currentUser && (
+                <div className="border-b border-gray-200 pb-4">
+                  <Link
+                    to="/login"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block w-full px-4 py-3 text-center text-white bg-orange-500 hover:bg-orange-600 rounded-lg font-medium transition-colors"
+                  >
+                    Sign In
+                  </Link>
+                </div>
+              )}
+
+              {/* User Profile Section for Mobile (only show when logged in) */}
+              {currentUser && (
+                <div className="border-b border-gray-200 pb-4">
+                  <div className="flex items-center gap-3 px-4 py-3 bg-orange-50 rounded-lg mb-3">
+                    <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
+                      <User className="w-5 h-5 text-orange-600" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-900">{userDetails.name || "User"}</p>
+                      <p className="text-sm text-gray-500">{userDetails.email}</p>
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    <Link
+                      to="/profile"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg transition-colors"
+                    >
+                      <User className="w-4 h-4" />
+                      My Profile
+                    </Link>
+                    <button
+                      onClick={() => {
+                        onLogout()
+                        setMobileMenuOpen(false)
+                      }}
+                      className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg transition-colors w-full text-left"
+                    >
+                      <LogOut className="w-4 h-4" />
+                      Sign Out
+                    </button>
+                  </div>
+                </div>
+              )}
+
               {/* Navigation Links */}
               <div className="space-y-2">
                 {["Home", "Brands", "Blog"].map((item) => (
