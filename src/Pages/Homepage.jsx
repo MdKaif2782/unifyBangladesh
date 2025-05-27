@@ -190,7 +190,7 @@ const Homepage = () => {
                             <img
                               src={product.photoUrl || "/placeholder.svg"}
                               alt={product.productName}
-                              className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                              className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                             />
 
                             {/* Discount Badge */}
@@ -208,11 +208,11 @@ const Homepage = () => {
                             </h3>
                             <p className="text-gray-600 text-sm mb-3 line-clamp-2">{product.description}</p>
 
-                            <div className="flex justify-between items-center">
-                              <div>
-                                <span className="text-lg font-bold text-orange-500">BDT {product.price}</span>
+                            <div className="flex justify-between">
+                              <div className="flex justify-start flex-col">
+                                <span className="text-md font-bold text-orange-500">BDT {product.price}</span>
                                 {product.regularPrice && (
-                                  <span className="ml-2 text-gray-400 line-through text-sm">
+                                  <span className=" text-gray-400 line-through text-sm">
                                     BDT {product.regularPrice}
                                   </span>
                                 )}
@@ -223,7 +223,7 @@ const Homepage = () => {
                                   e.stopPropagation()
                                   handleAddToCart(product)
                                 }}
-                                className="bg-orange-400 hover:bg-orange-500 text-white px-3 py-1.5 rounded text-sm font-medium transition-colors"
+                                className="w-36 bg-orange-400 hover:bg-orange-500 text-white px-3 py-1.5 rounded text-sm font-medium transition-colors"
                               >
                                 Add to Cart
                               </button>
