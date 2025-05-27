@@ -167,7 +167,7 @@ const Homepage = () => {
                 </div>
                 {!searchParams.get("product") && (
                   <Link
-                    to={`/category/${encodeURIComponent(category.toLowerCase())}`}
+                    to={`?category=${encodeURIComponent(category.toLowerCase())}`}
                     className="text-orange-500 hover:text-orange-600 text-sm font-medium transition-colors"
                   >
                     View All →
