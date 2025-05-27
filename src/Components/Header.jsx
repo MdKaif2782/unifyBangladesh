@@ -26,10 +26,12 @@ const customStyles = {
     borderRadius: "16px",
     padding: "0",
     overflow: "hidden",
+    zIndex: 9999,
   },
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     backdropFilter: "blur(4px)",
+    zIndex: 9999,
   },
 }
 
@@ -309,7 +311,7 @@ const Header = () => {
   )
 
   return (
-    <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+    <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-40">
       {/* Mobile Search Mode */}
       {isSearchActive && (
         <div className="md:hidden bg-white border-b border-gray-200 px-4 py-3">
