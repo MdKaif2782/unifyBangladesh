@@ -167,7 +167,7 @@ const Homepage = () => {
                 </div>
                 {!searchParams.get("product") && (
                   <Link
-                    to={`/category/${category.toLowerCase()}`}
+                    to={`/category/${encodeURIComponent(category.toLowerCase())}`}
                     className="text-orange-500 hover:text-orange-600 text-sm font-medium transition-colors"
                   >
                     View All →
@@ -183,7 +183,7 @@ const Homepage = () => {
 
                   return (
                     <div key={product.id} className="group">
-                      <Link to={`/product/${product.id}`} className="block">
+                      <Link to={`/product/${encodeURIComponent(product.id)}`} className="block">
                         <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-100">
                           {/* Image Container */}
                           <div className="relative overflow-hidden">
